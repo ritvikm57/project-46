@@ -8,7 +8,7 @@ var RestartImg, StartImg, playerImg, walk1Img, walk2Img, walkAnime;
 var templeIdelImg, TempleMummyImg, TempleSwordImg,TempleImg;
 var gameOver, Restart, Start, player, BG;
 var BgSound
-var A
+var A = 0
 
 function preload() {
     IdelImg = loadImage("Idel.png")
@@ -72,14 +72,14 @@ function draw(){
     }
     if(gameState === LOAD){
         Start.visible = false;
-        a=1
+        A=1
 
         textSize(10)
         fill("Black")
         text("Press the enter Button to Skip the Story and Press the right arrow for the next slide",400,780)
         
         if(keyDown(RIGHT_ARROW)){
-            a=a+1
+            A=A+1
         }
 
         if(a===1){
@@ -89,7 +89,7 @@ function draw(){
         fill("Black")
         text("Finally! After so long, I have found the Temple of the Great Egyptian Pharaoh.",100,760)
         }
-        if(a===2){
+        if(A===2){
 
         }
     }
