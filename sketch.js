@@ -71,27 +71,48 @@ function draw(){
         gameState = LOAD
     }
     if(gameState === LOAD){
-        Start.visible = false;
-        A=1
+        Story();
+    }
+       
+    drawSprites();
+}
 
+function Story(){
+    Start.visible = false;
+ 
+    if(keyWentDown(RIGHT_ARROW)&& A<3){
+        A=A+1
+    }
+
+    if(A===0 || A<3){
         textSize(10)
         fill("Black")
-        text("Press the enter Button to Skip the Story and Press the right arrow for the next slide",400,780)
-        
-        if(keyDown(RIGHT_ARROW)){
-            A=A+1
-        }
+        text("Press the SpaceBar Button to Skip the Story and Press the right arrow for the next slide",400,780)
+    }
 
-        if(a===1){
+    if(A===1){
         BG.addImage(templeIdelImg)
-        Start.visible = false;
         textSize(30)
         fill("Black")
         text("Finally! After so long, I have found the Temple of the Great Egyptian Pharaoh.",100,760)
-        }
-        if(A===2){
-
-        }
     }
-    drawSprites();
+    if(A===2){
+        BG.addImage(TempleMummyImg)
+        textSize(30)
+        fill("Black")
+        text("Now I need to find the Pharaoh's Tomb where the Diamond Sword lies", 150,760)
+
+    }
+    if(A===3){
+        BG.addImage(TempleSwordImg)
+        textSize(30)
+        fill("Black")
+        text("The Diamond Sword is believed to be enchanted by the great Wizard of Batan",100,760)
+        textSize(10)
+        text("Click SpaceBar to Play",550,780)
+    }
+    if(keyWentDown("Space")){
+        gameState = PLAY
+        BG.visible = false
+    }
 }
